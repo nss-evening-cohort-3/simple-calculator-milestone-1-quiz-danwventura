@@ -17,5 +17,104 @@ namespace SimpleCalculator.Tests
             Assert.AreEqual("+" , exp.Expression_Operand);
                     
         }
+
+        [TestMethod]
+        public void CanExtractPlusOperandWithSpaces()
+        {
+            Expression exp = new Expression();
+            exp.Parser("5 + 6");
+
+            Assert.AreEqual("+", exp.Expression_Operand);
+        }
+
+        [TestMethod]
+        public void CanExtractMinusOperandWithSpaces()
+        {
+            Expression exp = new Expression();
+            exp.Parser("5 - 6");
+
+            Assert.AreEqual("-", exp.Expression_Operand);
+        }
+
+        [TestMethod]
+        public void CanExtractTimesOperandWithSpaces()
+        {
+            Expression exp = new Expression();
+            exp.Parser("5 * 6");
+
+            Assert.AreEqual("*", exp.Expression_Operand);
+        }
+
+        [TestMethod]
+        public void CanExtractDivisionOperandWithSpaces()
+        {
+            Expression exp = new Expression();
+            exp.Parser("5 / 6");
+
+            Assert.AreEqual("/", exp.Expression_Operand);
+
+        }
+
+        [TestMethod]
+        public void CanExtractModulusOperandWithSpaces()
+        {
+
+            Expression exp = new Expression();
+            exp.Parser("5 % 6");
+
+            Assert.AreEqual("%", exp.Expression_Operand);
+
+        }
+
+        [TestMethod]
+        public void CanExtractPlusOperandWithoutSpaces()
+        {
+            Expression exp = new Expression();
+            exp.Parser("5+6");
+
+            Assert.AreEqual("+", exp.Expression_Operand);
+        }
+
+        [TestMethod]
+        public void CanExtractMinusOperandWithoutSpaces()
+        {
+            Expression exp = new Expression();
+            exp.Parser("5-6");
+
+            Assert.AreEqual("-", exp.Expression_Operand);
+        }
+
+        [TestMethod]
+        public void CanExtractTimesOperandWithoutSpaces()
+        {
+            Expression exp = new Expression();
+            exp.Parser("5*6");
+
+            Assert.AreEqual("*", exp.Expression_Operand);
+        }
+
+        [TestMethod]
+        public void CanExtractDivisionOperandWithoutSpaces()
+        {
+            Expression exp = new Expression();
+            exp.Parser("5/6");
+
+            Assert.AreEqual("/", exp.Expression_Operand);
+
+        }
+
+        [TestMethod]
+        public void CanExtractModulusOperandWithoutSpaces()
+        {
+
+            Expression exp = new Expression();
+            exp.Parser("5%6");
+
+            Assert.AreEqual("%", exp.Expression_Operand);
+
+        }
+
+
+
     }
 }
