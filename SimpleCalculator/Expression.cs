@@ -19,7 +19,7 @@ namespace SimpleCalculator
         {
 
 
-
+            
             user_input = user_input.Replace(" ", ""); //Getting rid of empty spaces in user input
             string[] possible_operands = {"+","-", "*", "-", "%", "/"}; //establishing a string array of all possible operands
             string[] numbers_array = user_input.Split('+','-','%','*','/'); //splitting user input on operands to create array of just numbers
@@ -33,6 +33,7 @@ namespace SimpleCalculator
                 }
             }
             
+
 
         }
 

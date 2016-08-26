@@ -114,6 +114,13 @@ namespace SimpleCalculator.Tests
 
         }
 
+        [TestMethod]
+        public void RegexMatchWorking()
+        {
+            
+
+        }
+
 
 
     }

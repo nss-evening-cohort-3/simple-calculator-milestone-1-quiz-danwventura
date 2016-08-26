@@ -8,9 +8,9 @@ namespace SimpleCalculator
 {
     public class ParsedExpression
     {
-        public int Integer1 { get; set; }
-        public int Integer2 { get; set; }
-        public char Operand { get; set; }
+        public int Integer1 { get; set; } //        variable to store first integer that user enters
+        public int Integer2 { get; set; } //        variable to store second integer that user enters
+        public char Operand { get; set; } //        variable to store operand that user enters (stores as a char)
 
         
     }
