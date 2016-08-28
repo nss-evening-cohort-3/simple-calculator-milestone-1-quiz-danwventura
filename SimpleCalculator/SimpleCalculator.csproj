@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculate.cs" />
-    <Compile Include="Parser.cs" />
+    <Compile Include="ParsedExpression.cs" />
     <Compile Include="Expression.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
