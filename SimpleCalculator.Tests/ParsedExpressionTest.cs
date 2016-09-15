@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCalculator.Tests
 {
-    class ParserTest
+    class ParsedExpressionTest
     {
     }
 }
