@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,16 @@ using System.Threading.Tasks;
 
 namespace SimpleCalculator.Tests
 {
-    class Class1
+    [TestClass]
+    public class CalculateTests
     {
+        [TestMethod]
+        public void EnsureCalculateTestIsNotNull()
+        {
+            Calculate calculate = new Calculate();
+            Assert.IsNotNull(calculate);
+        }
+
+
     }
 }
