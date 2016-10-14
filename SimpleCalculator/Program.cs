@@ -19,8 +19,10 @@ namespace SimpleCalculator
             Regex expressionMatch = new Regex(@"[0-9]\s*[\+\-\*\%\/]\s*[0-9]");      //      creating instance of regex and passing in my regex rule
             Regex constantMatch = new Regex(@"([a-z])\s*\=\s*([0-9])*");            //      second regex to check for user entering new constant
             Regex mixedExpressionMatch = new Regex(@"([a-z])\s*([\-\+\*\/\%])\s*([0-9]*)");
+            Regex variableOnlyMatch = new Regex(@"([a-z])");
             string constant_regex_pattern = @"([a-z,A-Z])\s*\=\s*([0-9])*";
             string mixed_expression_regex_pattern = @"([a-z])\s*([\-\+\*\/\%])\s*([0-9]*)";
+            string variable_only_regex_pattern = @"([a-z])";
             string user_entry = "ENTER EXPRESSION";       //      initializing string user_entry with value of a string which I will change in while loop
             Stack userStack = new Stack();
             
@@ -60,6 +62,7 @@ namespace SimpleCalculator
                 Match user = expressionMatch.Match(user_entry);      //      matching user_entry against regex rule implemented on line 19 expressions to evaluate
                 Match new_constant = constantMatch.Match(user_entry);          //      matching user_entry against second regex rule from line 20 for constants
                 Match mixed_expression = mixedExpressionMatch.Match(user_entry);
+                Match variable_only = variableOnlyMatch.Match(user_entry);
 
                 if (user.Success)       //      setting up if statement if user entered expression matches regex rule for an expression to be calculated
                 {
@@ -75,11 +78,14 @@ namespace SimpleCalculator
 
                 else if (new_constant.Success)          //      setting up if statement if second regex matches new constant
                 {
+
                     MatchCollection constants = Regex.Matches(user_entry, constant_regex_pattern);
+
+
 
                     foreach (Match match in constants)
                     {
-                        char new_user_constant_letter = char.Parse(match.Groups[1].Value.ToLower());
+                        string new_user_constant_letter = match.Groups[1].Value.ToLower().ToString();
                         int new_user_constant_number = int.Parse(match.Groups[2].Value);
 
                         if (userStack.CheckIfConstantExistsInDictionary(new_user_constant_letter) == true)
@@ -92,15 +98,36 @@ namespace SimpleCalculator
                         }
                     }
                 }
+
+                else if (variable_only.Success)
+                {
+                    MatchCollection variables = Regex.Matches(user_entry, variable_only_regex_pattern);
+
+
+                    foreach (var variable in variables)
+                    {
+                       int users_variable_int =  userStack.GetInputConstantsValue(user_entry);
+                       Console.WriteLine(users_variable_int);
+                    }
+                    
+                }
+
                 else if (mixed_expression.Success)
                 {
                     MatchCollection mixed_expression_parts = Regex.Matches(user_entry, mixed_expression_regex_pattern);
+                    
+
                     foreach (Match part in mixed_expression_parts)
                     {
-                        char already_stored_variable = char.Parse(part.Groups[1].Value);
+                        string already_stored_variable = part.Groups[1].Value.ToString();
                         char operand = char.Parse(part.Groups[2].Value);
                         int number_to_include_in_new_expression = int.Parse(part.Groups[3].Value);
+
+                        int users_returned_value = userStack.GetInputConstantsValue(already_stored_variable);
+                        Console.WriteLine(users_returned_value);
                     }
+
+                    
 
                 }
 

@@ -11,7 +11,7 @@ namespace SimpleCalculator.Tests
     public class CalculateTests
     {
         [TestMethod]
-        public void EnsureCalculateTestIsNotNull()
+        public void EnsureCalculateClassIsNotNull()
         {
             Calculate calculate = new Calculate();
             Assert.IsNotNull(calculate);

@@ -9,8 +9,8 @@ namespace SimpleCalculator
     public class Stack
     {
 
-        Dictionary<char, int> expressionHolder = new Dictionary<char, int>();       //      initializing new dictionary which will take a char as a key and an int as a value from the user so constants can be set
-        char user_variable { get; set; }        //      initializing a char that will be set with user's choice of a single letter to represent a variable
+        Dictionary<string, int> expressionHolder = new Dictionary<string, int>();       //      initializing new dictionary which will take a string as a key and an int as a value from the user so constants can be set
+        string user_variable { get; set; }        //      initializing a char that will be set with user's choice of a single letter to represent a variable
         int user_number { get; set; }       //      initializing an int that will be set with user's choice of a number that is the value that corresponds to the char variable established above
         string last_expression { get; set; }        //      initializing a string that will hold the previous expression that the user entered 
         int last_answer { get; set; }       //      initializing an int that will be the last answer generated from the last expression the user entered
@@ -37,13 +37,13 @@ namespace SimpleCalculator
             return last_answer;         //      returning last_answer
         }
 
-        public void SetNewUserConstantInExpressionHolder(char new_user_constant_letter, int new_user_constant_number)
+        public void SetNewUserConstantInExpressionHolder(string new_user_constant_letter, int new_user_constant_number)
         {
 
             expressionHolder.Add(new_user_constant_letter, new_user_constant_number);
         }
 
-        public bool CheckIfConstantExistsInDictionary(char new_user_constant_letter)
+        public bool CheckIfConstantExistsInDictionary(string new_user_constant_letter)
         {
 
             if (expressionHolder.ContainsKey(new_user_constant_letter))
@@ -56,7 +56,20 @@ namespace SimpleCalculator
             }
         }
 
-        
+        public int GetInputConstantsValue(string user_constant_letter_input)
+        {
+            
+
+            if (expressionHolder.ContainsKey(user_constant_letter_input))
+            {
+               int UsersConstantValue = expressionHolder[user_constant_letter_input];
+
+                return UsersConstantValue;
+            }
+            return 0;
+        }
+
+
 
     }
 
