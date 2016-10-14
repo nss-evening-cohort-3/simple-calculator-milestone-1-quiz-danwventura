@@ -17,10 +17,10 @@ namespace SimpleCalculator
             Calculate calc = new Calculate();       //      initializing instance of Calculate class
             bool Continue = true;       //      initializing Continue bool 
             Regex expressionMatch = new Regex(@"[0-9]\s*[\+\-\*\%\/]\s*[0-9]");      //      creating instance of regex and passing in my regex rule
-            Regex constantMatch = new Regex(@"([a-z])\s*\=\s*([0-9])*");            //      second regex to check for user entering new constant
+            Regex constantMatch = new Regex(@"([a-z])\s*\=\s*([0-9]*)");            //      second regex to check for user entering new constant
             Regex mixedExpressionMatch = new Regex(@"([a-z])\s*([\-\+\*\/\%])\s*([0-9]*)");
             Regex variableOnlyMatch = new Regex(@"([a-z])");
-            string constant_regex_pattern = @"([a-z,A-Z])\s*\=\s*([0-9])*";
+            string constant_regex_pattern = @"([a-z,A-Z])\s*\=\s*([0-9]*)";
             string mixed_expression_regex_pattern = @"([a-z])\s*([\-\+\*\/\%])\s*([0-9]*)";
             string variable_only_regex_pattern = @"([a-z])";
             string user_entry = "ENTER EXPRESSION";       //      initializing string user_entry with value of a string which I will change in while loop
